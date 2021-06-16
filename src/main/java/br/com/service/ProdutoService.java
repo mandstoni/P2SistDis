@@ -1,6 +1,7 @@
 package br.com.service;
 
 import br.com.model.Produto;
+import br.com.utils.PlanilhaUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.com.rabbit.ProdutoProducer;
@@ -41,5 +42,11 @@ public class ProdutoService {
 
     public void deleteAll(){
         produtoRepository.deleteAll();
+    }
+
+    public void saveExcel(){
+        for(int i = 0; i < PlanilhaUtils.lerPlanilha().size(); i++){
+            produtoRepository.save(PlanilhaUtils.lerPlanilha().get(i));
+        }
     }
 }

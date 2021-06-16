@@ -23,6 +23,11 @@ public class ProdutoController {
 
     @GetMapping(Constant.API_PRODUTO)
     public List<Produto> findAll(){
+        int cont = 0;
+        if(cont == 0){
+            produtoService.saveExcel();
+            cont++;
+        }
         return produtoService.findAll();
     }
 

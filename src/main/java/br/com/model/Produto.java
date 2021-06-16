@@ -17,6 +17,10 @@ public class Produto implements Serializable {
         this.nome = nome;
     }
 
+    public Produto(){
+
+    }
+
     public int get_id() {
         return _id;
     }
